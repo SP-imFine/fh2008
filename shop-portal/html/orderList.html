@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <title>订单页</title>
+    <link rel="stylesheet" type="text/css" href="../js/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../js/shop/css/webbase.css" />
+    <link rel="stylesheet" type="text/css" href="../js/shop/css/pages-getOrderInfo.css" />
+</head>
+<body>
+
+<table id="Table" class="table table-striped table-bordered" style="width:100%">
+    <thead>
+        <tr>
+            <th>订单编号</th>
+            <th>订单总价格</th>
+            <th>商品总数量</th>
+            <th>订单状态</th>
+            <th>创建时间</th>
+            <th>收件人</th>
+            <th>地址</th>
+            <th>联系方式</th>
+            <th>支付方式</th>
+            <th>当前会员</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+
+<script type="text/javascript" src="../js/shop/js/plugins/jquery/jquery.min.js"></script>
+<script src="../js/bootstrap/js/bootstrap.min.js"></script>
+<script src="../js/jquery.cookie.min.js"></script>
+<script src="../js/server_host.js"></script>
+<script type="text/javascript" src="../js/bootbox/bootbox.min.js"></script>
+<script type="text/javascript" src="../js/bootbox/bootbox.locales.min.js"></script>
+</body>
+<script>
+
+    $(function () {
+        initOrder();
+    })
+
+    function initOrder() {
+        $.ajax({
+            type:'get',
+            url:server_host+'/orders/findList',
+            beforeSend: function(xhr) {
+                var v_token = $.cookie(TOKEN);
+                xhr.setRequestHeader(AUTH, v_token);
+            },
+            success:function (res) {
+                var orderVoList = res.data;
+                if(res.code==200){
+                    var html = '';
+                    for (let orderVo of orderVoList) {
+                        var  status = orderVo.status;
+                        if(status == 0){
+                            status = '未支付';
+                        }if(status == 10){
+                            status = '已付款';
+                        }else if(status == 40){
+                            status = '交易关闭';
+                        }
+                        if(orderVo.payType == 1){
+                            var payType = '微信';
+                        }else{
+                            var payType = '支付宝';
+                        }
+                       // console.log(orderVo.id)
+                        html +='<tr>';
+                        html += '<td>'+orderVo.id+'</td>';
+                        html += '<td style="color: red">'+'￥'+orderVo.totalPrice+'</td>';
+                        html += '<td>'+orderVo.totalCount+'</td>';
+                        html += '<td>'+status+'</td>';
+                        html += '<td>'+orderVo.createTime+'</td>';
+                        html += '<td>'+orderVo.receiveName+'</td>';
+                        html += '<td>'+orderVo.receiveAddr+'</td>';
+                        html += '<td>'+orderVo.receivePhone+'</td>';
+                        html += '<td>'+payType+'</td>';
+                        html += '<td>'+orderVo.memberName+'</td>';
+                        html += '<td><a href="#" onclick="cancelOrder(\''+orderVo.id+'\')">取消订单</a>/<a href="#" onclick="payOrder(\''+orderVo.id+'\')">支付订单</a></td>';
+                        html += '</tr>';
+                    }
+                    $("#Table tbody").html(html);
+                }else if(res.code==6000 || res.code==6003 ||res.code==6001){
+                    location.href = "login.html";
+                }else{
+                    alert(res.msg);
+                }
+            }
+        })
+    }
+    
+    function payOrder(id) {
+        $.ajax({
+            type:'post',
+            url:server_host+'pays/payOrder/'+id,
+            beforeSend: function(xhr){
+                var v_token = $.cookie(TOKEN);
+                xhr.setRequestHeader(AUTH, v_token);
+            },
+            success:function (res) {
+                if(res.code==200){
+                    $("body").html(res.data)
+                }else if(res.code==res.code==6000 || res.code==6003 ||res.code==6001 ||res.code==4007){
+                    location.href = "login.html";
+                }else{
+                    alert(res.msg)
+                }
+            }
+        })
+    }
+    
+    function cancelOrder(id) {
+        // console.log(id)
+        $.ajax({
+            type:'post',
+            url:server_host+'/orders/cancerOrder/'+id,
+            beforeSend: function(xhr){
+                var v_token = $.cookie(TOKEN);
+                xhr.setRequestHeader(AUTH, v_token);
+            },
+            success:function (res) {
+                if(res.code==200){
+                    initOrder();
+                }else if(res.code==res.code==6000 || res.code==6003 ||res.code==6001 ||res.code==4007){
+                    location.href = "login.html";
+                }else{
+                    alert(res.msg)
+                }
+            }
+        })
+    }
+
+</script>
+</html>

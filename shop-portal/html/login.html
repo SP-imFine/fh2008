@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+
+    <link rel="stylesheet" href="../js/bootstrap/css/bootstrap.min.css">
+    <link rel="icon" href="../js/shop/assets/img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../js/shop/css/webbase.css" />
+    <link rel="stylesheet" type="text/css" href="../js/shop/css/pages-JD-index.css" />
+    <link rel="stylesheet" type="text/css" href="../js/shop/css/widget-jquery.autocomplete.css" />
+    <link rel="stylesheet" type="text/css" href="../js/shop/css/widget-cartPanelView.css" />
+    <title>登录</title>
+</head>
+<body>
+
+<div style="float:left;width:800px;margin-left:450px;margin-top:100px" >
+
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">会员名</label>
+            <div class="col-sm-4">
+                <input  class="form-control" id="memberName">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="password" class="col-sm-2 control-label">密码</label>
+            <div class="col-sm-4">
+                <input  class="form-control" id="password">
+            </div>
+            <div class="" id="restPWD">
+                <a href="findPassword.html">忘记密码</a>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-4">
+                <button type="button" class="btn btn-primary" onclick="login()">登录</button>
+                <button type="button" class="btn btn-warning" onclick="toRegister()"><span class="glyphicon glyphicon-arrow-left"></span>去注册</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="../js/jquery-3.3.1.js"></script>
+<script src="../js/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/shop/js/pages/index.js"></script>
+<script src="../js/jquery.cookie.min.js"></script>
+<script src="../js/server_host.js"></script>
+<script>
+
+    function toRegister() {
+        location.href = "register.html";
+    }
+
+    function login(){
+
+        var memberName = $("#memberName").val();
+        var password = $("#password").val();
+        if(memberName =="") {
+            return alert("请输入会员名");
+        }
+        if(password =="") {
+            return alert("请输入密码");
+        }
+        $.ajax({
+            type:"post",
+            data:{"memberName":memberName,"password":password},
+            url :"http://localhost:9000/member/api/members/login",
+            success:function(data){
+                if(data.code==200){
+                    //在不同页面cookie传递头信息
+                    $.cookie(TOKEN,data.data);
+                    location.href = "index.html";
+                }else if(data.code==5103){
+                    //会员未激活
+                    var resultData = data.data;
+                    console.log(resultData)
+                    $.cookie("resultData",resultData);
+                    //跳转到激活页面
+                    location.href = "active.html";
+                } else{
+                    alert(data.msg);
+                }
+            }
+        })
+
+    }
+
+
+</script>
+</body>
+</html>

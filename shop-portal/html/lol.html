@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="renderer" content="webkit">
+  <meta name="robots" content="all">
+  <meta name="author" content="Tencent-CP">
+  <meta name="Copyright" content="Tencent">
+  <meta name="baidu-site-verification" content="j7L1Dn5ZGa"/>
+  <meta name="Description" content="Ӣ�����˹ٷ���վ�������������Ӣ�ۣ��ḻ����ݵ���Ʒ�ϳ�ϵͳ����Ϸ���õ�ƥ�䡢���к;���ϵͳ�������ġ��ٻ�ʦ��ϵͳ�����ܡ����ġ��츳��ϵͳ��ϣ��ؽ��������һ��ո�¶��ַḻ��ʵ���Ϸ���硣">
+  <meta name="Keywords" content="Ӣ������,lol,lol�������,lol����,lol��Ƶ,lol��Ƶ����,Ӣ������,Ӣ������ս��ѧԺ,���ǽ�˵��Ƶ,101ս��ѧԺ,Ӣ��,����,WCG,����ͼ��,����">
+  <title>Ӣ������ȫ�¹ٷ���վ-��Ѷ��Ϸ</title>
+  <!-- ҳ����ƣ�cp | ҳ��������cp | ������2018-08-21 -->
+  <!--<link rel="stylesheet" href="//lol.qq.com/c/=/v3/css/topfoot.css,/v3/css/comm.css,/v3/css/index.css,/v3/css/swiper2.7.6-with-scrollbar.css">-->
+  <link rel="stylesheet" href="/v3/css/topfoot.css">
+  <link rel="stylesheet" href="/v3/css/comm.css">
+  <link rel="stylesheet" href="/v3/css/index.css">
+  <link rel="stylesheet" href="/v3/css/swiper2.7.6-with-scrollbar.css">
+</head>
+<body>
+<!--[if lt IE 9]>
+<style>.comm-head{top:40px}</style>
+<p class="chromeframe">
+  <span>��ʹ�õ�IE������汾���ͣ���վ����֧�֣�</span>
+  <a href="//windows.microsoft.com/">��������IE�����</a>
+  <span>����ʹ��</span>
+  <a href="//www.google.cn/chrome/">Google Chrome</a><a>��</a><a href="//www.firefox.com.cn/download/">Firefox</a>
+  <span>�ȸ߼������������õ����õ����飡</span>
+</p>
+<![endif]-->
+<!--����ͨ��ҳͷ start-->
+<div class="comm-head" exposure-tag="topnav,ͷ������">
+  <div class="head-normal">
+    <!--logo-->
+    <a class="logo" href="/" title="Ӣ�����˹���">
+      <img src="//game.gtimg.cn/images/lol/v3/logo-public.png" width="167" height="60" alt="Ӣ������">
+    </a>
+    <!--��������-->
+    <ul class="head-nav" id="J_headNav">
+    </ul>
+    <script type="text/html" id="J_headNavTemplate">
+      {{each list}}
+      <li>
+        <a {{if $value.url.length > 0}}href="{{$value.url}}" target="_blank" onclick="PTTSendClick('topnav','topnav-{{$index}}','{{$value.name}}');" title="{{$value.name}}"{{/if}}>
+          <span class="head-nav-title">{{$value.name}}</span>
+          <span class="head-nav-subtitle">{{$value.enname}}</span>
+        </a>
+      </li>
+      {{/each}}
+    </script>
+    <!--�����Ϣ-->
+    <div class="head-userinfo-normal">
+      <div class="head-userinfo-avatar">
+        <img src="//game.gtimg.cn/images/lol/v2/personal/avatar/default.png" width="36" height="auto" alt="���ͷ��">
+        <span></span>
+        <a href="//lol.qq.com/space/index.shtml" target="_blank" class="herf-mask" title="��������"></a>
+      </div>
+      <div class="head-userinfo-brief">
+        <p class="unlogin">�װ����ٻ�ʦ����ӭ<a href="javascript:T_Login.login()">��¼</a></p>
+        <p class="login-unbindarea" style="display: none">��<a href="javascript:T_Login.changeArea()">�󶨴���</a>��<a href="javascript:T_Login.logout()">ע��</a></p>
+        <p class="logined" style="display: none"><a class="logined-name"></a><a class="logined-logout" href="javascript:T_Login.logout()">[ע��]</a></p>
+      </div>
+    </div>
+    <!--����ͼ��-->
+    <span class="head-app-normal">
+      <a target="_blank" href="//lol.qq.com/app/index.html" onclick="pgvSendClick({hottag:'v3.top.top.zmpc'})" class="comm-icon-phone"></a>
+    </span>
+    <!--������ť-->
+    <a class="head-search-btn" id="J_headSearchBtn" href="javascript:" title="����">
+      <i class="comm-icon-search"></i>
+    </a>
+    <!--hover:���˶�ά��-->
+    <div class="head-app-hover">
+      <i class="head-zm-qrcode">
+        <img src="//game.gtimg.cn/images/lol/v3/zm-qrcode.jpg" width="119" height="119" alt="����App��ά��">
+      </i>
+      <p class="p1">ɨ����������Ӣ������</p>
+      <img class="polo" src="//game.gtimg.cn/images/lol/v3/polo.gif" alt="����" width="50" height="50">
+    </div>
+    <!--��¼hover-->
+    <div class="head-login-hover">
+      <div class="unlogin">
+        <p class="p1">
+          ��¼���Ұ󶨴�����ſ��Բ鿴���ľ�����ϢŶ<br>
+          (����ս�����ʲ���������
+        </p>
+        <p class="p2">
+          ����������Ϣ��ʾ�����ӳ٣�������Ϸ����Ϊ׼
+        </p>
+      </div>
+      <div class="logined" style="display: none;">
+        <div class="logined-top">
+          <a class="select-area" href="javascript:T_Login.changeArea()"></a>
+          <a class="user-name"></a>
+        </div>
+        <ul class="logined-ul">
+          <li class="user-rank">
+            <div class="img-wrap">
+              <img src="//game.gtimg.cn/images/lol/space/rank/2019pre/default.png" alt="��λ" id="commHeadTierImg">
+            </div>
+            <a class="a1" id="commHeadTier">���޶�λ</a><br>
+            <a class="a2" id="commHeadQueue"></a>
+          </li>
+          <li class="user-datalist">
+            <a class="a1" id="commHeadWinRate">--</a><br><a class="a2">ʤ��</a>
+          </li>
+          <li class="user-datalist">
+            <a class="a1" id="commHeadMatchCount">--</a><br><a class="a2">�ܳ���</a>
+          </li>
+          <li class="user-datalist">
+            <a class="a1" id="commHeadJingCui">--</a><br><a class="a2">��ɫ����</a>
+          </li>
+          <li class="user-datalist">
+            <a class="a1" id="commHeadDianQuan">--</a><br><a class="a2">��ȯ</a>
+          </li>
+        </ul>
+        <p class="p2">
+          ����������Ϣ��ʾ�����ӳ٣�������Ϸ����Ϊ׼
+        </p>
+      </div>
+      <a href="//lol.qq.com/space/index.shtml" class="href-gouserhome">�����������<i class="more-arrow"></i></a>
+    </div>
+  </div>
+  <!--hover:���������Ӳ˵�-->
+  <div class="head-nav-sub">
+    <div class="head-nav-sub-inner">
+      <ul id="J_headNavSub">
+      </ul>
+      <script type="text/html" id="J_headNavSubTemplate">
+        {{each list as topItem topIndex}}
+        <li>
+          {{each topItem.urls as subItem subIndex}}
+          <a class="head-nav-sub-a" onclick="PTTSendClick('topnav','topnav-{{topIndex+1}}-{{subIndex}}','{{subItem.name}}');" href="{{subItem.url}}" target="_blank">
+            {{if subItem.icon.length > 0}}<i class="icon-{{subItem.icon}}"></i>{{/if}}
+            {{subItem.name}}
+          </a>
+          {{/each}}
+        </li>
+        {{/each}}
+      </script>
+    </div>
+  </div>
+  <!--hover:����-->
+  <div class="search-hover-wrap">
+    <div class="search-hover-inner">
+      <a href="javascript:" class="btn-search" id="J_hoverSearchBtn" title="�������">
+        <i class="comm-icon-search"></i>
+      </a>
+      <input type="text" id="J_hoverSearchInput" class="input-search" placeholder="���� lol.qq.com" autocomplete="off">
+      <a class="btn-close-search" id="J_btnCloseSearch" href="javascript:" title="�ر�����">
+        <i class="icon-xx-1"></i>
+      </a>
+      <div class="search-hover-bottom">
+        <span class="hover-bottom-s1">������¼</span>
+        <ul class="search-direct-href"></ul>
+        <a class="hover-bottom-s2" href="javascript:" id="J_hoverClearRecord">�����¼</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!--����ͨ��ҳͷ end-->
+<!--ͷ����� start-->
+<div class="comm-topact big" exposure-tag="topact,ͷ�����">
+  <img class="topact-big-img">
+  <img class="topact-small-img">
+  <div class="act-fullscreen-mask"></div>
+  <div class="dark-mask"></div>
+  <div class="comm-topact-inner">
+    <a class="top-act-link" href="javascript:" onclick="PTTSendClick('topact','topact-detail','�鿴����')" target="_blank">�鿴����</a>
+    <div id="J_topActVersion" class="top-version">��ǰ��Ϸ�汾��<em>Ver ***</em> <a class="top-version-link" href="javascript:" onclick="pgvSendClick({hottag:'v3.topact.version.link'})" target="_blank">�汾����</a></div>
+  </div>
+</div>
+<!--ͷ����� end-->
+
+<!--��ҳ����-->
+<div class="g-zoombox">
+  <!--part 1-->
+  <div class="g-index-wrap1">
+    <!--��ҳ����ͼ-->
+    <div class="m-promo" id="J_promo" exposure-tag="indexScroll,��ҳ�ֲ�">
+      <ul class="promo-img-list" id="promoImgList">
+        <li class="loading-tip"><img src="//ossweb-img.qq.com/images/lol/v3/polo.gif"><a>���ڼ���</a></li>
+        <script type="text/html" t-foreach="mydata" data-channels="15282:22029|15282:22128|15282:22129|15282:22130|15282:22131">
+          <li class="promo-item">
+            <a href="<%_mydata.adUrl%>" target="_blank"
+
+               onclick="PTTSendClick('indexScroll','scroll-<%_mydata.bannerId%>','<%_mydata.Fname%>');">
+              <img t-watch="1" src="<%_mydata.imgUrl%>" width="820" height="340" alt="<%_mydata.Fname%>">
+            </a>
+            <span class="title" data-bannerid="<%_mydata.bannerId%>"><%_mydata.Fname%></span>
+          </li>
+          <% window.Promo.init() %>
+        </script>
+      </ul>
+      <div class="promo-title-list" id="promoTitleList"></div>
+    </div>
+    <!--���Ź���-->
+    <div class="m-news" exposure-tag="Notice,����">
+      <!--���Ź���tab-title-->
+      <div class="part-top-tab">
+        <ul class="part-tab-title">
+          <li data-newsId="23" class="selected">�ۺ�</li>
+          <li data-newsId="24">����</li>
+          <li data-newsId="25">����</li>
+          <li data-newsId="27">����</li>
+          <li data-newsId="28">����</li>
+        </ul>
+      </div>
+      <!--���Ź���tab-content-->
+      <div class="new-tab-content" >
+        <ul class="new-tab-content-ul" id="J_newsListContainer"></ul>
+        <script type="text/html" id="J_newsItemTemplate">
+          {{each}}
+          {{if $index===0}}
+          <li class="first">
+            <a class="item-href" target="_blank" href="{{$value.sRedirectURL}}"
+               onclick="PTTSendClick('Notice','Notice{{newsId}}-{{$index}}','{{$value.sTitle}}');SendEAS.sendNewsPV('index','{{$value.sRedirectURL}}','{{$value.iDocID}}')">
+              {{$value.sTitle}}
+            </a>
+          </li>
+          {{else if !$value.tagData}}
+          <li class="newsitem news">
+              <span class="item-type">����</span>
+              <a class="item-href" target="_blank" href="{{$value.sRedirectURL}}"
+                 onclick="PTTSendClick('Notice','Notice{{newsId}}-{{$index}}','{{$value.sTitle}}');SendEAS.sendNewsPV('index','{{$value.sRedirectURL}}','{{$value.iDocID}}')">
+                {{$value.sTitle}}
+              </a>
+              <span class="item-time">{{$value.l_time}}</span>
+            </li>
+          {{else}}
+          <li class="newsitem {{$value.tagData.n_class}}">
+            <span class="item-type">{{$value.tagData.c_tag}}</span>
+            <a class="item-href" target="_blank" href="{{$value.sRedirectURL}}"
+               onclick="PTTSendClick('Notice','Notice{{newsId}}-{{$index}}','{{$value.sTitle}}');SendEAS.sendNewsPV('index','{{$value.sRedirectURL}}','{{$value.iDocID}}')">
+              {{$value.sTitle}}
+            </a>
+            <span class="item-time">{{$value.l_time}}</span>
+          </li>
+          {{/if}}
+          {{/each}}
+        </script>
+        <a target="_blank" class="btn-morenews" href="/news/index.shtml" onclick="PTTSendClick('Notice','Notice-more','�Ķ�����������Ѷ')">
+          <span class="c1">�Ķ�����</span><span class="c2">������Ѷ</span><i class="more-arrow"></i>
+        </a>
+      </div>
+    </div>
+    <!--���Ż-->
+    <div class="m-act" exposure-tag="act,���Ż">
+      <div class="part-top-tab">
+        <h2 class="part-h2-title">���Ż</h2>
+        <ul class="part-tab-title">
+          <li data-actname="ZZJX" class="selected">���ڽ���</li>
+          <li data-actname="SCTH">�̳��ػ�</li>
+          <li data-actname="CQHD">���ڻ</li>
+        </ul>
+        <a target="_blank" href="/activity/index.shtml" onclick="PTTSendClick('act','act-more','����')" class="herf-more">����<i class="more-arrow"></i></a>
+      </div>
+      <div class="m-act-list">
+        <ul id="J_actListContainer">
+        </ul>
+        <script type="text/html" id="J_actItemTemplate">
+          {{each list}}
+          <li class="act-item">
+            <img src="{{$value.sSmallnewImgUrl || $value.sSmallImgUrl}}" alt="{{$value.sName}}" width="193" height="207">
+            <p>{{$value.sName}}</p>
+            {{if $value.remainTip}}
+            <a class="overtime">{{$value.remainTip}}</a>
+            {{/if}}
+            {{if $value.remainTip === '�ѽ���'}}
+            {{else if +$value.iHotActFlag}}
+            <i class="icon-hot-1"></i>
+            {{else if $value.isNew}}
+            <i class="icon-new-1"></i>
+            {{/if}}
+            <div class="innerhover-border">
+              <i class="hover-border-1"></i>
+              <div class="innerhover-border-inner">
+                <h4 class="p1">{{$value.sName}}</h4>
+                <p class="p2">{{#$value.sDescripion}}</p>
+                {{if $value.isLong || $value.isUnknown}}
+                <p class="p2">����ʱ��: {{$value.dtBegin}}</p>
+                {{else}}
+                <p class="p2">{{$value.dtBegin}} - {{$value.dtEnd}}</p>
+                {{/if}}
+              </div>
+            </div>
+            <a class="herf-mask" href="{{$value.sActDetailUrl}}" target="_blank" title="{{$value.sName}}"
+               onclick="PTTSendClick('act','act-{{$value.iActId}}','{{$value.sName}}')"></a>
+          </li>
+          {{/each}}
+        </script>
+      </div>
+    </div>
+    <!--��Ϸ���ܵ���-->
+    <div class="m-gamefunc-nav" exposure-tag="gameNav,��Ϸ���ܵ���">
+      <ul class="slide-nav-ul">
+        <li class="herf-download" title="������Ϸ">
+          <video class="side-down-video" autoplay loop muted width="366" height="168">
+            <source src="//ossweb-img.qq.com/images/lol/v3/btn-download.mp4" type="video/mp4">
+          </video>
+          <a href="download.shtml?ADTAG=lolweb.v3" class="herf-mask" target="_blank" onclick="PTTSendClick('gameNav','gameNav-download','������Ϸ')">������Ϸ</a>
+        </li>
+        <li class="btn-flashmen p1" title="���ֱر�">
+          ���ֱر�
+          <div class="inner-hover">
+            <a href="/data/newbie-what.shtml" target="_blank" title="����ָ��" onclick="PTTSendClick('gameNav','gameNav-guide','ָ��')">
+              <i class="icon-zhiyin"></i>
+              ָ��
+            </a>
+            <a href="//lol.qq.com/act/djc_qt_rookie/web/a20141205rookie/index.htm" target="_blank" title="�������" onclick="PTTSendClick('gameNav','gameNav-gift','���')">
+              <i class="icon-gift"></i>
+              ���
+            </a>
+          </div>
+        </li>
+        <li class="p2" title="��ȡ����">
+          <a class="herf-type-0" href="//lol.qq.com/act/a20180929awards/index.html?ADTAG=lolweb.v3#box2" target="_blank" onclick="PTTSendClick('gameNav','gameNav-Receive','��ȡ����')">��ȡ����</a>
+        </li>
+        <li class="p3" title="���߿ͷ�">
+          <a class="herf-type-1" href="//kf.qq.com/product/lol.html?pc_scene=web" target="_blank" onclick="PTTSendClick('gameNav','gameNav-service','���߿ͷ�')">
+            <i class="icon-kh"></i>���߿ͷ�
+          </a>
+        </li>
+        <li class="p3" title="�������">
+          <a class="herf-type-1" href="//lol.qq.com/act/a20171108ambient/index.html" target="_blank" onclick="PTTSendClick('gameNav','gameNav-zhixudiantang','�������')">
+            <i class="icon-fhcx"></i>�������
+          </a>
+        </li>
+        <li class="p3" title="��Ϸ����">
+          <a class="herf-type-1" href="/data/info-heros.shtml" target="_blank" onclick="PTTSendClick('gameNav','gameNav-gamedata','��Ϸ����')">
+            <i class="icon-yxzl"></i>��Ϸ����
+          </a>
+        </li>
+        <li class="p4" title="Ͽ��֮��">
+          <a class="herf-type-1" href="//lol.qq.com/act/a20191210super/index.shtml" target="_blank" onclick="PTTSendClick('gameNav','gameNav-xiagudianfeng','Ͽ��֮��')">
+            <i class="icon-xgzd"></i>Ͽ��֮��
+          </a>
+        </li>
+		<li class="p3" title="�ƶ�֮��">
+          <a class="herf-type-1" href="//101.qq.com/tft/index.shtml" target="_blank" onclick="PTTSendClick('gameNav','gameNav-tft','�ƶ�֮��')">
+            <i class="icon-tft"></i>�ƶ�֮��<b class="icon-new-1"></b>
+          </a>
+        </li>
+		<li class="p3" title="��������">
+          <a class="herf-type-1" href="//101.qq.com/" target="_blank" onclick="PTTSendClick('gameNav','gameNav-101','��������')">
+            <i class="icon-101"></i>��������
+          </a>
+		  </li>
+        <li class="p3" title="LOL����">
+          <a class="herf-type-1" href="//yz.lol.qq.com/zh_CN/" target="_blank" onclick="PTTSendClick('gameNav','gameNav-yz','LOL����')">
+            <i class="icon-yz"></i>LOL����
+          </a>
+        </li>
+        <li class="p4" title="΢�Ű�">
+          <a class="herf-type-1" href="//lol.qq.com/act/a20180607wechatbinding/index.html?primary=qq" target="_blank" onclick="PTTSendClick('gameNav','gameNav-bindwx','΢�Ű�')">
+            <i class="icon-wxbd"></i>΢�Ű�
+          </a>
+        </li>
+<!--        <li class="p4" title="�������" id="J_gamebss">-->
+<!--          <a class="herf-type-1" href="javascript:"><i class="icon-wjsq"></i>�������</a>-->
+<!--        </li>-->
+      </ul>
+    </div>
+    <!--��Ӣ����Ƥ��-->
+    <div class="m-new-championskin" exposure-tag="newchampionskin,��Ӣ����Ƥ��">
+      <!--��Ӣ��-->
+      <div class="m-new-champion-one" id="J_newChampionContainer">
+      </div>
+      <script id="J_newChampionTemplate" type="text/html">
+        <img src="{{pic}}" alt="{{title}}" width="402" height="254">
+        <i class="pic-mask-0"></i>
+        <a class="tip-championskin">{{tag}}</a>
+        <p class="intro-championskin">{{subtitle}}</p>
+        <p class="name-championskin"><a>{{title}}</a></p>
+        <!--Ӣ������hover-->
+        <div class="inner-hover" id="J_championAbility" data-championId="{{champion}}">
+          <i class="border"></i>
+          <p class="p1">{{title}}</p>
+          <ul class="champion-ability">
+            <li>�Ѷ� ��<span class="champion-hard-bar" id="J_hardBar"><i class="i1"></i><i class="i2"></i><i
+                class="i3"></i></span>
+            </li>
+            <li>������ ��<span class="champion-power-bar"><i id="J_attackBar" style="width: 10%"></i></span></li>
+            <li>�������� ��<span class="champion-power-bar"><i id="J_defenseBar"></i></span></li>
+            <li>ħ������ ��<span class="champion-power-bar"><i id="J_magicBar"></i></span></li>
+          </ul>
+          <a class="inner-hover-href" target="_blank" href="{{url}}" onclick="PTTSendClick('newchampionskin','newchampionskin-newchampion','��Ӣ��')">�鿴����<i class="more-arrow-2"></i></a>
+        </div>
+      </script>
+      <!--��Ƥ��-->
+      <div class="m-new-skin-one" id="J_newSkinContainer">
+      </div>
+      <script id="J_newSkinTemplate" type="text/html">
+        <img src="{{pic}}" alt="{{title}}" width="402" height="254">
+        <i class="pic-mask-0"></i>
+        <a class="tip-championskin">{{tag}}</a>
+        <p class="intro-championskin">{{subtitle}}</p>
+        <p class="name-championskin"><a href="javascript:" target="_blank">{{title}}</a></p>
+        <!--����Ƥ��hover-->
+        <div class="innerhover-out">
+          <img src="{{pic}}" width="435" height="244" alt="{{title}}">
+          <div class="hover-video" width="435" height="244" id="J_newSkinHoverVideo" data-vid="{{vid}}"></div>
+          <p class="p1">{{subtitle}}</p>
+          <p class="p2">{{title}}</p>
+          <a href="{{url}}" target="_blank" class="a1" title="{{title}}" onclick="PTTSendClick('newchampionskin','newchampionskin-newskin','��Ƥ��')">�鿴����</a>
+        </div>
+      </script>
+    </div>
+    <!--�汾����-->
+    <div class="m-version-nav" exposure-tag="version,�汾����">
+      <!--�汾��������-->
+      <div class="new-version" id="J_newVersionContainer">
+      </div>
+      <script id="J_newVersionTemplate" type="text/html">
+        <img src="{{pic}}" width="240" height="120" alt="{{title}}">
+        <div class="innerhover-out">
+          <img src="{{pic}}" width="270" height="186" alt="{{title}}">
+          <div class="hover-video" width="270" height="186" id="J_newVersionHoverVideo"
+               data-vid="{{vid}}"></div>
+          <p class="p1">{{title}}</p>
+          <p class="p2">{{version}}</p>
+          <a href="{{url}}" target="_blank" class="a1" title="{{title}}" onclick="PTTSendClick('version','version-versionupdate','�汾��������')">�鿴����</a>
+        </div>
+      </script>
+      <!--�����߻���-->
+      <div class="club-developer" id="J_clubDeveloperContainer">
+      </div>
+      <script type="text/html" id="J_clubDeveloperTemplate">
+        <img src="{{pic}}" width="242" height="180" alt="{{title}}">
+        <div class="innerhover-border">
+          <i class="hover-border-2"></i>
+          <div class="innerhover-border-inner">
+            <h4 class="p1">{{title}}</h4>
+            <p class="p2">{{hover}}</p>
+          </div>
+        </div>
+        <a class="herf-mask" href="{{url}}" target="_blank" title="{{title}}" onclick="PTTSendClick('version','version-developerdetail','{{title}}')"></a>
+      </script>
+      <!--���ܱ�-->
+      <div class="new-model" id="J_newModelContainer">
+      </div>
+      <script type="text/html" id="J_newModelTemplate">
+        <img src="{{pic}}" width="240" height="120" alt="{{title}}">
+        <img src="{{hover}}" class="hover-img" width="270" height="186" alt="{{title}}">
+        <a href="{{url}}" target="_blank" class="herf-mask" title="{{title}}" onclick="PTTSendClick('version','version-newmodel','{{title}}')"></a>
+      </script>
+      <!--����-->
+      <div class="week-free-champion">
+        <a class="week-free-a" href="javascript:">
+          <i class="inline-icon-0-left"></i>����<i class="more-arrow-1"></i><i class="inline-icon-0-right"></i>
+        </a>
+      </div>
+      <!--����hover-->
+      <div class="week-free-hover">
+        <i class="arrow"></i>
+        <ul id="J_freeChampionContainer">
+          <script id="J_freeChampionTemplate" type="text/html">
+            {{each data}}
+            <li class="week-free-item">
+              <img src="//game.gtimg.cn/images/lol/act/img/champion/{{$index}}.png" alt="{{data[$index].title}}"
+                   width="46" height="46">
+              <a href="/data/info-defail.shtml?id={{$value.key}}" onclick="PTTSendClick('version','version-weekfree-{{$index}}','{{data[$index].title}}')" class="herf-mask" target="_blank"
+                 title="{{data[$index].title}}"></a>
+            </li>
+            {{/each}}
+          </script>
+        </ul>
+      </div>
+    </div>
+    <!--������Ƥ��-->
+    <div class="m-more-skin" exposure-tag="moreskin,������Ƥ��">
+      <div class="content">
+        <ul id="J_moreNewSkinContainer">
+          <script type="text/html" id="J_moreNewSkinTemplate">
+            {{each}}
+            {{if $index===0 }}
+            <li class="more-skin-item" style="margin-right:12px">
+              {{else}}
+            <li class="more-skin-item">
+              {{/if}}
+              <img src="{{$value.pic}}" width="185" height="117" alt="{{$value.title">
+              <p class="skinname">
+                <a class="a2">{{$value.title}}</a>
+              </p>
+              <a class="herf-mask" target="_blank" href="{{$value.url || 'javascript:'}}"
+                 title="{{$value.title}}" onclick="PTTSendClick('moreskin','moreskin-{{$index}}','{{$value.title}}')"></a>
+            </li>
+            {{/each}}
+          </script>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!--part 2 ��Ƶר��-->
+  <div class="g-wrap-vp">
+    <div class="g-wrap">
+      <!--������Ƶ-->
+      <div class="m-fresh-video" exposure-tag="newVideo,������Ƶ">
+        <!--ģ�����-->
+        <div class="part-top-tab">
+          <h2 class="part-h2-title">������Ƶ</h2>
+          <ul class="part-tab-title">
+
+          </ul>
+          <a href="//lol.qq.com/v/v2/index.shtml" target="_blank" class="herf-more" onclick="PTTSendClick('newVideo','newVideo-more','����')">����<i class="more-arrow"></i></a>
+          <a href="javascript:;" id="change-batche" onclick="PTTSendClick('newVideo','newVideo-change','��һ��')"></a>
+        </div>
+        <!--ģ������-->
+        <ul class="fresh-video-content" id="J_flashVideoContainer">
+        </ul>
+        <script type="text/html" id="J_flashVideoTemplate">
+          {{each result}}
+          <li class="video-item" data-vid="{{$value.sVID}}">
+            <!--��ƵͼƬ-->
+            <div class="mask-img">
+              <img src="{{$value.sIMG}}" class="video-cover" width="198" height="110" alt="{{$value.sTitle}}">
+              <span class="btn-play-1"><i></i><a></a></span>
+              <div class="video-pre-wrap" style="display:none">
+                <img class="video-pre-img" width="198" height="110">
+                <span class="video-pre-bg"></span>
+                <span class="video-pre-bar"><i></i></span>
+              </div>
+              <a href="//lol.qq.com/v/v2/detail.shtml?docid={{$value.iDocID}}" target="_blank" class="herf-mask"
+                 onclick="PTTSendClick('newVideo','newVideo-{{$value.iDocID}}','{{$value.sTitle}}');SendEAS.sendVideoPV('index','//lol.qq.com/v/v2/detail.shtml?docid={{$value.iDocID}}','{{$value.iDocID}}')"></a>
+            </div>
+            <a class="video-length">{{$value.iTime}}</a>
+            <p class="name-video">
+              <a href="//lol.qq.com/v/v2/detail.shtml?docid={{$value.iDocID}}" target="_blank"
+                onclick="PTTSendClick('newVideo','newVideo-{{$value.iDocID}}','{{$value.sTitle}}');SendEAS.sendVideoPV('index','//lol.qq.com/v/v2/detail.shtml?docid={{$value.iDocID}}','{{$value.iDocID}}')">
+              {{$value.sTitle}}</a>
+            </p>
+            <a class="play-times">{{$value.iTotalPlay}}�β���</a>
+            <a class="update-time">{{$value.sIdxTime}}</a>
+          </li>
+          {{/each}}
+        </script>
+      </div>
+      <!--����ר��-->
+      <div class="m-hotprogram" exposure-tag="hotprogram,����ר��">
+        <!--ģ�����-->
+        <div class="part-top-tab">
+          <h2 class="part-h2-title">����ר��</h2>
+          <ul class="part-tab-title">
+            <li data-programDay="monday">��һ</li>
+            <li data-programDay="tuesday">�ܶ�</li>
+            <li data-programDay="wednesday">����</li>
+            <li data-programDay="thursday">����</li>
+            <li data-programDay="friday">����</li>
+            <li data-programDay="saturday">����</li>
+            <li data-programDay="sunday" class="end">����</li>
+          </ul>
+        </div>
+        <!--ģ������-->
+        <div class="hotprogram-content">
+          <div class="hotprogram-list-wrap">
+            <div class="hotprogram-list swiper-container" id="J_HotprogramList">
+              <ul class="swiper-wrapper" id="J_programContainer">
+              </ul>
+            </div>
+            <a class="hotprogram-list-left" href="javascript:" title="�������"></a>
+            <a class="hotprogram-list-right" href="javascript:" title="���ҹ���"></a>
+            <!--ר��ģ��-->
+            <script type="text/html" id="J_programTemplate">
+              {{each result}}
+              <li class="hotprogram-item swiper-slide">
+                <img class="program-pic" src="{{$value.sIMG}}" width="156" height="212" alt="sTitle">
+                <h4 class="name-program">{{$value.sTitle}}</h4>
+                {{if +$value.iCurPos}}
+                <p class="progress-program">{{$value.dtUpdateShow}}������{{$value.iCurPos}}��</p>
+                {{else}}
+                <p class="progress-program">{{$value.dtUpdateShow}}����</p>
+                {{/if}}
+                <a target="_blank" href="//lol.qq.com/v/v2/detail.shtml?docid={{$value.sLatestItem.docid}}"
+                   class="herf-mask" title="{{$value.sTitle}}"
+                   onclick="PTTSendClick('hotprogram','hotprogram-{{$value.sLatestItem.docid}}','{{$value.sTitle}}');SendEAS.sendVideoPV('index','//lol.qq.com/v/v2/detail.shtml?docid={{$value.sLatestItem.docid}}','{{$value.sLatestItem.docid}}')"></a>
+                <a class="name-progress" href="//lol.qq.com/v/v2/detail.shtml?docid={{$value.sLatestItem.docid}}" target="_blank"
+                   onclick="PTTSendClick('hotprogram','hotprogram-{{$value.sLatestItem.docid}}','{{$value.sDesc}}');SendEAS.sendVideoPV('index','//lol.qq.com/v/v2/detail.shtml?docid={{$value.sLatestItem.docid}}','{{$value.sLatestItem.docid}}')">{{$value.sDesc}}</a>
+                <a target="_blank" class="author-program" href="//lol.qq.com/space/news.shtml?initGrid=1&id={{$value.uuid}}"
+                   title="{{$value.sAuthor}}"
+                   onclick=" PTTSendClick('hotprogram','hotprogram-{{$value.authorID}}','{{$value.sAuthor}}');SendEAS.sendVideoPV('index','//lol.qq.com/space/news.shtml?initGrid=1&id={{$value.uuid}}','{{$value.sLatestItem.docid}}')">
+                  {{if $value.avatar}}
+                  <img src="{{$value.avatar}}" width="30" height="30" alt="{{$value.sAuthor}}">
+                  {{/if}}
+                  {{$value.sAuthor}}
+                </a>
+              </li>
+              {{/each}}
+            </script>
+          </div>
+          <!--�������-->
+          <a class="more-hotprogram" href="//lol.qq.com/v/v2/index.shtml" target="_blank" title="ǰ����Ƶ����" onclick="PTTSendClick('hotprogram','hotprogram-more','�鿴����')">
+            ǰ����Ƶ����<i class="more-arrow-2"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--part 3 ��������-->
+  <div class="g-wrap-match" exposure-tag="match,��������">
+    <div class="part-top-tab">
+      <h2 class="part-h2-title">��������</h2>
+      <ul class="part-tab-title"></ul>
+      <a href="javascript:" class="toptip-event" style="display: none" target="_blank" id="J_eventTopNews">
+        <!--<img src="//ossweb-img.qq.com/images/lol/v3/logo-lpl-small.png" width="25" height="25" alt="lpl">
+        2018LPL�ļ�������������9��5�տ���-->
+      </a>
+      <a href="//lpl.qq.com" target="_blank" class="herf-more" onclick="PTTSendClick('match','match-more','�鿴����')">����<i class="more-arrow"></i></a>
+    </div>
+    <!--����������������-->
+    <div class="m-events-container"></div>
+  </div>
+  <!--part 4 Ӣ������-->
+  <div class="g-wrap-championlist" exposure-tag="championlist,Ӣ������">
+    <div class="g-wrap">
+      <!--ģ�����-->
+      <div class="part-top-tab">
+        <h2 class="part-h2-title">Ӣ������</h2>
+        <ul class="part-tab-title" id="J_championSortType">
+          <li class="selected" data-sort="All">����Ӣ��</li>
+          <li data-sort="Fighter">սʿ</li>
+          <li data-sort="Mage">��ʦ</li>
+          <li data-sort="Assassin">�̿�</li>
+          <li data-sort="Tank">̹��</li>
+          <li data-sort="Marksman">����</li>
+          <li data-sort="Support">����</li>
+        </ul>
+        <a target="_blank" href="/data/info-heros.shtml" onclick="PTTSendClick('championlist','championlist-data','���Ͽ�')" class="herf-more">���Ͽ�<i class="more-arrow"></i></a>
+      </div>
+      <!--Ӣ���б�-->
+      <div class="m-champion-list-container swiper-container" id="J_ChampionListContainer">
+        <div class="m-champion-list-wrapper swiper-wrapper">
+          <ul class="swiper-slide" id="J_championItemContainer">
+
+          </ul>
+          <!--Ӣ�����ģ��,��Ȼʹ����������,������Ļ��Ĺ���milo��������,���Լ�������������-->
+          <script id="championItem" type="text/html">
+            {{each data}}
+            <li class="champion-item" data-tags="{{$value.tags.toString()}}">
+              <img src="//game.gtimg.cn/images/lol/act/img/champion/{{$value.id}}.png" width="66" height="66" alt="{{$value.name}}">
+              <i class="hover-icon"></i>
+              <p>{{$value.name}}</p>
+              <a target="_blank" href="/data/info-defail.shtml?id={{$value.id}}" class="herf-mask" onclick="PTTSendClick('championlist','championlist-{{$value.heroId}}','{{$value.name}}')" title="{{$value.name}}"></a>
+            </li>
+            {{/each}}
+          </script>
+        </div>
+        <!--������-->
+        <div class="scrollbar"></div>
+      </div>
+    </div>
+  </div>
+  <!--part 5 fanart-->
+  <div class="g-wrap-fanart" exposure-tag="fanart,������" id="J_fanart">
+    <!--fanart������-->
+    <div class="fanart-left">
+      <!--ģ�����-->
+      <div class="part-top-tab">
+        <h2 class="part-h2-title">FANART������</h2>
+        <a target="_blank" href="//tr.lol.qq.com/index.html" onclick="PTTSendClick('fanart','fanart-more','�鿴����')" class="herf-more">����<i class="more-arrow"></i></a>
+      </div>
+      <!--ģ������-->
+      <ul class="fanart-left-content" id="J_fanartContainer">
+      </ul>
+      <script type="text/html" id="J_fanartTemplate">
+        {{each list}}
+        <li>
+          <a href="//tr.lol.qq.com/fanart/detail.html?contentId={{$value.iContentId}}" target="_blank"
+             title="{{$value.sTitle}}"
+             onclick="PTTSendClick('fanart','fanart-item{{$value.iContentId}}','{{$value.sTitle}}');">
+            <img class="fanart-img" id="fanart{{$index}}" src="{{$value.sCoverUrl}}258" alt="{{$value.sTitle}}">
+          </a>
+          <!--hover-->
+          <div class="innerhover-bottom">
+            <h4 class="p1">
+              <a href="//tr.lol.qq.com/fanart/detail.html?contentId={{$value.iContentId}}" target="_blank"
+                 onclick="PTTSendClick('fanart','fanart-item{{$value.iContentId}}','{{$value.sTitle}}');">
+                {{$value.sTitle}}
+              </a>
+            </h4>
+            <p class="p2">
+              <a class="a1" href="//tr.lol.qq.com/fanart/space.html?openId={{$value.sOpenId}}" target="_blank" onclick="PTTSendClick('fanart','fanart-item{{$value.iContentId}}','{{$value.sNickName}}');">
+                <img src="{{$value.sUrl}}" width="22" height="22" alt="{{$value.sNickName}}">{{$value.sNickName}}
+              </a>
+              <a class="a2" href="javascript:" data-zan="{{$value.iContentId}}" onclick="PTTSendClick('fanart','fanart-item{{$value.iContentId}}','��');">
+                <i class="icon-666"></i><span class="number">{{$value.iZanCount}}</span><span class="tip">+1</span>
+              </a>
+            </p>
+          </div>
+        </li>
+        {{/each}}
+      </script>
+    </div>
+    <div class="fanart-right">
+      <!--���ר��-->
+      <div class="main-column" id="J_mainColumn">
+        <script type="text/html" id="J_mainColumnTemplate">
+          <img src="{{pic}}" width="241" height="411" alt="{{content}}">
+          <span class="p1"><i class="inline-icon-1"></i>��Ʒר��<i class="inline-icon-1"></i></span>
+          <h4 class="p2">{{content}}</h4>
+          <!--<p class="p3">����ժҪ����ժҪ����ժ����ժҪ����ժҪ����ժ</p>-->
+          <a class="herf-mask" href="{{url}}" target="_blank" title="{{content}}" onclick="PTTSendClick('fanart','fanart-maincolumn','��Ʒר��');"></a>
+        </script>
+      </div>
+      <!--�ұ��б�-->
+      <ul class="fanart-right-right">
+        <li class="herf-right-1">
+          <img data-imgsrc="//ossweb-img.qq.com/images/lol/v3/href-bg-2.jpg">
+          <a class="href-mask" href="//lol.qq.com/act/a20160407ymy/index.htm?iSurveyId=1" target="_blank" onclick="PTTSendClick('fanart','fanart-other1','�û�����');">
+            <i class="inline-icon-1"></i>Ӣ�������û�����
+          </a>
+        </li>
+        <li class="herf-right-1">
+          <img data-imgsrc="//ossweb-img.qq.com/images/lol/v3/href-bg-3.jpg">
+          <a class="href-mask" href="//lol.qq.com/gicp/news/423/2/1334/1.html" target="_blank" onclick="PTTSendClick('fanart','fanart-other2','�汾��ʷ');">
+            <i class="inline-icon-1"></i>��֤�汾��ʷ
+          </a>
+        </li>
+        <li class="herf-right-1">
+          <img data-imgsrc="//ossweb-img.qq.com/images/lol/v3/href-bg-4.jpg">
+          <a class="href-mask" href="javascript:alert('�����ڴ�')" target="_blank" onclick="PTTSendClick('fanart','fanart-other3','Ʒ��չʾ');">
+            <i class="inline-icon-1"></i>���Ʒ��չʾ
+          </a>
+        </li>
+        <li class="href-partner">
+          <a href="javascript:" target="_blank">
+            <i class="inline-icon-0-left"></i>����ý��<i class="more-arrow-1"></i><i class="inline-icon-0-right"></i>
+          </a>
+          <div class="partner-list-container swiper-container" id="J_partnerList">
+            <div class="partner-list-wrapper swiper-wrapper">
+              <ul class="partner-list-slide swiper-slide" id="J_partnerContainer">
+              </ul>
+            </div>
+            <script type="text/html" id="J_partnerTemplate">
+              {{each}}
+              {{if $value.href}}
+              <li>
+                <a href="{{$value.href}}" target="_blank" onclick="PTTSendClick('fanart','fanart-partener{{$index}}','{{$value.name}}')">{{$value.name}}</a>
+              </li>
+              {{/if}}
+              {{/each}}
+            </script>
+            <div class="scrollbar"></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!--����֮��-->
+<a href="//lol.qq.com/act/a20210330suspense/" target="_blank" class="nav-fix-ban"  onclick="PTTSendClick('rightnav','fix-mwzj','����֮��');">
+    <img width="90px" height="90px" src="//game.gtimg.cn/images/lol/v3/doll2021.gif">
+</a>
+
+<!--�����-->
+<div class="rightnav-bar" exposure-tag="rightnav,�����������">
+  <ul>
+<!--<li data-scrollto=".btn-morenews" onclick="PTTSendClick('rightnav','rightnav-mwzj','����֮��');" class="rightnav-bar-li rn-rmhd selected" title="����֮��">-->
+<!--<a href="//lol.qq.com/act/a20210330suspense/" target="_blank" style="display:block;width:62px">-->
+<!--        <img width="36px" height="30px" src="//game.gtimg.cn/images/lol/v3/doll1024.gif">-->
+<!--      </a>-->
+<!--      <a href="//lol.qq.com/act/a20210330suspense/" target="_blank">����֮��</a>-->
+<!--    </li>-->
+    <li data-scrollto=".btn-morenews" onclick="PTTSendClick('rightnav','rightnav-act','���Ż');" class="rightnav-bar-li rn-rmhd" title="���Ż">
+      <span>
+        <i></i>
+      </span>
+      <a>���Ż</a>
+    </li>
+    <li data-scrollto=".m-fresh-video" onclick="PTTSendClick('rightnav','rightnav-video','��Ƶ����');" class="rightnav-bar-li rn-spzx" title="��Ƶ����">
+      <span>
+        <i></i>
+      </span>
+      <a>��Ƶ����</a>
+    </li>
+    <li data-scrollto=".g-wrap-match" onclick="PTTSendClick('rightnav','rightnav-event','��������');" class="rightnav-bar-li rn-sszx" title="��������">
+      <span>
+        <i></i>
+      </span>
+      <a>��������</a>
+    </li>
+    <li data-scrollto=".g-wrap-championlist" onclick="PTTSendClick('rightnav','rightnav-championrecommend','Ӣ������');" class="rightnav-bar-li rn-yxtj" title="Ӣ���Ƽ�">
+      <span>
+        <i></i>
+      </span>
+      <a>Ӣ������</a>
+    </li>
+    <li data-scrollto=".fanart-left" onclick="PTTSendClick('rightnav','rightnav-fanart','FANART');" class="rightnav-bar-li rn-fanart" title="fanart">
+      <span>
+        <i></i>
+      </span>
+      <a>FANART</a>
+    </li>
+    <li class="rightnav-bar-li rn-polo" onclick="PTTSendClick('rightnav','rightnav-backTop','�ص�����');" title="�ص�����">
+      <span>
+        <i></i>
+        <img src="//ossweb-img.qq.com/images/lol/v3/polo.gif" alt="����">
+      </span>
+      <a>����</a>
+    </li>
+  </ul>
+</div>
+<script src="//ossweb-img.qq.com/images/clientpop/js/tgadshow.min.js" charset=��utf-8��></script>
+<!--����ͨ�õײ�,��������ʹ��,����վ����pureFoot start-->
+<div class="foot-wrap" id="footWrap">
+  <div class="foot_inner" id="gfooter" ams="152/35206/m131" age="18" dark="1" ieg-logo="1">
+    <!-- <div class="foot_top"> any HTML code </div> -->
+    <a onclick="pgvSendClick({hottag:'v3.foot.ieg.link'})" target="_blank" href="//ieg.tencent.com/" title="��Ѷ��������" class="foot_ieg_logo">��Ѷ��������</a>
+    <span onclick="pgvSendClick({hottag:'v3.foot.riot.link'})" title="RIOT" class="foot_left logo-riot">riot</span>
+    <p class="copyright_txt">COPYRIGHT &copy; 2012 Riot Games,Inc. ALL RIGHTS RESERVED.</p>
+    <p>ȫ���Ļ��г�ͳһ�ٱ��绰��12318</p>
+    <!-- <p class="copyright_txt">COPYRIGHT &?Smilegate Entertainment. All rights reserved.</p>-->
+    <!-- <div  class="foot_bottom"> any HTML code </div> -->
+  </div>
+</div>
+<!--�ײ���Ȩjs-->
+<script src="//game.gtimg.cn/images/js/2018foot/foot.js"></script>
+<!--����ͨ��js start-->
+<script src="//ossweb-img.qq.com/images/js/jquery/jquery-1.9.1.min.js"></script>
+<script src="//ossweb-img.qq.com/images/js/eas/eas.js"></script>
+<script src="/v3/js/lib.js?v=927"></script>
+<script src="//js.aq.qq.com/js/aq_common.js"></script>
+<!--����ͨ��js end-->
+<!--��¼����js start-->
+<script src="//ossweb-img.qq.com/images/js/milo_bundle/milo.js"></script>
+<script src="//lol.qq.com/comm-htdocs/js/game_area/lol_server_select.js"></script>
+<script src="/v3/js/LOL_Login.js"></script>
+<script src="/v3/js/v3comm.js"></script>
+<!--��¼����js end-->
+<!--����ģ��js start-->
+<script src="//lol.qq.com/act/AutoCMS/publish/LOLWeb/HeadCfg/headcfg.js"></script>
+<script src="/v3/js/TopModule.js"></script>
+<script src="//ossweb-img.qq.com/images/js/ArtTemplate.js" charset="utf-8"></script>
+<!--����ģ��js end-->
+<!--����ͨ�õײ� end-->
+
+<!--<script src="//ossweb-img.qq.com/images/js/ArtTemplate.js" charset="utf-8"></script>-->
+<script src='//vm.gtimg.cn/tencentvideo/txp/js/txplayer.js'></script>
+<script src="/v3/js/swiper2.7.6-with-scrollbar.min.js"></script>
+<script src="/v3/js/index.js?v=20181228"></script>
+<!--���ݲɼ����ϱ� start-->
+<!--<script src="//tajs.qq.com/stats?sId=22024406"></script>-->
+<script src="//ossweb-img.qq.com/images/js/eas/eas.js"></script>
+<script src="//ossweb-img.qq.com/images/js/PTT/ping_tcss_tgideas_https_min.js"></script>
+<script>
+   var setSite = {
+        siteType: "main",
+        pageType: "index",
+        pageName: "��ҳ",
+        project: "base",
+    };
+    if (typeof (pgvMain) == 'function') pgvMain();
+
+</script>
+<!--���ݲɼ����ϱ� end-->
+</body>
+</html>

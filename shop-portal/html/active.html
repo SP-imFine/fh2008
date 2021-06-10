@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>激活页面</title>
+    <link rel="stylesheet" href="../js/bootstrap/css/bootstrap.min.css">
+    <link rel="icon" href="../js/shop/assets/img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../js/shop/css/webbase.css" />
+    <link rel="stylesheet" type="text/css" href="../js/shop/css/pages-JD-index.css" />
+    <link rel="stylesheet" type="text/css" href="../js/shop/css/widget-jquery.autocomplete.css" />
+    <link rel="stylesheet" type="text/css" href="../js/shop/css/widget-cartPanelView.css" />
+</head>
+<body>
+<div style="float:left;width:800px;margin-left:350px;margin-top:100px" id="failDiv">
+
+<h1 style="">用户未激活，请发送邮件进行<a href="#" onclick="activeMember();" style="color: red">激活</a>后，再进行登录</h1>
+
+</div>
+<script src="../js/jquery-3.3.1.js"></script>
+<script src="../js/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/shop/js/pages/index.js"></script>
+<script src="../js/jquery.cookie.min.js"></script>
+<script src="../js/server_host.js"></script>
+
+<script>
+
+//方法1
+    // function activeMember() {
+    //     var result = $.cookie("resultData");
+    //     //将json字符串转成json对象
+    //     // var aa = JSON.stringify(result);
+    //     console.log(result)
+    //     // var activeInfo = eval('('+result+')');
+    //     // console.log(activeInfo);
+    //     $.ajax({
+    //         type:'post',
+    //         contentType:'application/json',
+    //         data:result,
+    //         url:server_host+'members/activeMember',
+    //         success:function (res) {
+    //             if(res.code==200){
+    //                 $.removeCookie("resultData");
+    //                 alert("已向您的邮箱发送邮件，请在五分钟之内激活")
+    //                 location.href = "login.html";
+    //             }else{
+    //                 alert(res.msg);
+    //             }
+    //         }
+    //     })
+    //
+    // }
+
+//方法2
+    function activeMember() {
+        var result = $.cookie("resultData");
+        //将json字符串转成json对象
+        // var aa = JSON.stringify(result);
+        console.log(result)
+        //eval 将json字符串转成json对象
+        var activeInfo = eval('('+result+')');
+        console.log(activeInfo);
+        $.ajax({
+            type:'post',
+            data:activeInfo,
+            url:server_host+'members/activeMember',
+            success:function (res) {
+                if(res.code==200){
+                    $.removeCookie("resultData");
+                    alert("已向您的邮箱发送邮件，请在五分钟之内激活")
+                    location.href = "login.html";
+                }else{
+                    alert(res.msg);
+                }
+            }
+        })
+
+    }
+</script>
+</body>
+</html>

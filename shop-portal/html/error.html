@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>激活失败</title>
+    <link rel="stylesheet" href="../js/bootstrap/css/bootstrap.min.css">
+    <link rel="icon" href="../js/shop/assets/img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../js/shop/css/webbase.css" />
+    <link rel="stylesheet" type="text/css" href="../js/shop/css/pages-JD-index.css" />
+    <link rel="stylesheet" type="text/css" href="../js/shop/css/widget-jquery.autocomplete.css" />
+    <link rel="stylesheet" type="text/css" href="../js/shop/css/widget-cartPanelView.css" />
+</head>
+<body>
+<div style="float:left;width:800px;margin-left:450px;margin-top:100px" id="failDiv">
+</div>
+
+
+
+
+
+
+<script src="../js/jquery-3.3.1.js"></script>
+<script src="../js/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/shop/js/pages/index.js"></script>
+<script src="../js/jquery.cookie.min.js"></script>
+<script src="../js/server_host.js"></script>
+<script>
+
+    $(function () {
+        count();
+    })
+
+    var v_count = 6;
+    function count() {
+        v_count--
+        $("#failDiv").html('<h1 style="color: red">激活码已超时，请重新发送激活码， '+v_count+'S ... 后自动跳转到登录页面</h1>\n' +
+            '<h2 style="">如未跳转请手动点击<a href="login.html">跳转</a></h2>')
+        if(v_count==0){
+            location.href = "login.html";
+            return;
+        }
+        setTimeout(function () {
+            count()
+        },1000)
+    }
+
+
+</script>
+</body>
+</html>
