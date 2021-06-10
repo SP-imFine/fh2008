@@ -56,7 +56,7 @@ public class ISkuServiceImpl implements ISkuService{
     public ServerResponse findSku(Long id) {
         Sku sku = skuMapper.selectById(id);
         ServerResponse<Sku> success = ServerResponse.success(sku);
-        success.getData()
+        success.getData();
         return ServerResponse.success(sku);
     }
 

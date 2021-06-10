@@ -1,8 +1,44 @@
 eureka:
   instance:
-    hostname: localhost #指定主机地址
+    hostname: e0 #指定主机地址
   client:
-    fetch-registry: false #指定是否要从注册中心获取服务（注册中心不需要开启）
-    register-with-eureka: false
+    fetch-registry: true #指定是否要从注册中心获取服务（注册中心不需要开启）
+    register-with-eureka: true
+    service-url:
+              defaultZone: http://e1:8001/eureka/,http://e2:8002/eureka/ #配置注册中心地址，互相注册
 server:
   port: 8000
+spring:
+  profiles: reg0
+  application:
+    name: regCenter
+---
+eureka:
+  instance:
+    hostname: e1 #指定主机地址
+  client:
+    fetch-registry: true #指定是否要从注册中心获取服务（注册中心不需要开启）
+    register-with-eureka: true
+    service-url:
+              defaultZone: http://e0:8000/eureka/,http://e2:8002/eureka/
+server:
+  port: 8001
+spring:
+  profiles: reg1
+  application:
+    name: regCenter
+---
+eureka:
+  instance:
+    hostname: e2 #指定主机地址
+  client:
+    fetch-registry: true #指定是否要从注册中心获取服务（注册中心不需要开启）
+    register-with-eureka: true
+    service-url:
+          defaultZone: http://e0:8000/eureka/,http://e1:8001/eureka/
+server:
+  port: 8002
+spring:
+  profiles: reg2
+  application:
+    name: regCenter

@@ -10,7 +10,7 @@ eureka:
     register-with-eureka: true #注册到Eureka的注册中心
     fetch-registry: true #获取注册实例列表
     service-url:
-      defaultZone: http://localhost:8000/eureka/
+      defaultZone: http://e0:8000/eureka/,http://e1:8001/eureka/,http://e2:8002/eureka/
 
 sku:
   count:
